@@ -2,7 +2,10 @@ import csv
 import json
 import random
 import re
+import requests
 from pathlib import Path
+
+url = "https://openlibrary.org/search.json"
 
 csv_file = Path("data/booksdata.csv")
 json_file = Path("data/booksout.json")
@@ -16,6 +19,20 @@ def generate_isbn():  #generate a unique 13 digit isbn-like number
         if isbn not in used_isbns:
             used_isbns.add(isbn)
             return isbn
+        
+def get_genre(title,author):
+    
+
+    paramaters = {
+        "title": title,
+        "author": author,
+        "limit": 1
+    }
+    response = requests.get(url, params=paramaters, timeout=10)
+    if response.status_code != 200:
+        return "Unknown"
+    
+    data = response.json()
 
 def read_books(csv_file):
     with open(csv_file, 'r', encoding="utf-8") as file:
@@ -40,8 +57,8 @@ def clean_books(books):
           #  "type": book.get("Type", "").strip(),
             
             "title": book.get("Title", "").strip(),
-            "issued": book.get("Issued", "").strip(),
-            "language": book.get("Language", "").strip(),
+          #  "issued": book.get("Issued", "").strip(),
+          #  "language": book.get("Language", "").strip(),
             "authors": [
                 author["name"]
                 for author in parsed_authors
@@ -51,10 +68,13 @@ def clean_books(books):
                 for author in parsed_authors
                 if author["lifespan"]
             ],
+            "isbn": generate_isbn(),
+            "numberOfPages": None,
+            "genre": None,
             "subjects": clean_subjects(book.get("Subjects", "")),
-         #   "locc": book.get("LoCC", "").strip(),
-            "bookshelves": book.get("Bookshelves", "").strip(),
-            "isbn": generate_isbn()
+            "locc": book.get("LoCC", "").strip(),
+         #   "bookshelves": book.get("Bookshelves", "").strip(),
+            
         }
 
         cleaned_books.append(cleaned_book)
@@ -154,12 +174,16 @@ if __name__ == "__main__":
 
     valid_books = validate_books(cleaned_books)
 
+    books_to_process = valid_books[:50]
+
+
     print("Books read: ", len(books))
     print("Books cleaned: ", len(cleaned_books))
     print("Books validated: ", len(valid_books))
 
-
-    write_json(valid_books, json_file)
+    books_to_write = valid_books[:50]
+    print("Books being written to JSON file: ", len(books_to_write))
+    write_json(valid_books[:50], json_file)
     
     #this is so only the first 5 rows are returned for testing purposes
     # for book in books[:5]:
