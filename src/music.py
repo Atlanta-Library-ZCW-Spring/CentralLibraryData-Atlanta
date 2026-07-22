@@ -6,7 +6,6 @@ import pandas as pd
 
 INPUT_FILE = Path("tcc_ceds_music.csv")
 OUTPUT_FILE = Path("music_data.json")
-MAX_ROWS = 12
 
 REQUIRED_COLUMNS = [
     "artist_name",
@@ -16,7 +15,7 @@ REQUIRED_COLUMNS = [
 ]
 
 
-def extract_music_data(input_file, max_rows=None):
+def extract_music_data(input_file):
 
     if not input_file.exists():
         raise FileNotFoundError(f"Input file was not found: {input_file}")
@@ -37,10 +36,6 @@ def extract_music_data(input_file, max_rows=None):
     # Keep only required columns
     music_df = music_df[REQUIRED_COLUMNS]
 
-    # Read only first max_rows rows
-    if max_rows is not None:
-        music_df = music_df.head(max_rows)
-
     # Replace missing values with empty strings
     music_df = music_df.fillna("")
 
@@ -57,13 +52,12 @@ def extract_music_data(input_file, max_rows=None):
 def write_json(data, output_file):
 
     with output_file.open(mode="w", encoding="utf-8") as json_file:
-
-        json.dump(data, json_file, indent=4,ensure_ascii=False)
+        json.dump(data, json_file, indent=4, ensure_ascii=False)
 
 
 def main():
 
-    music_data = extract_music_data(input_file=INPUT_FILE, max_rows=MAX_ROWS)
+    music_data = extract_music_data(input_file=INPUT_FILE)
 
     write_json(data=music_data, output_file=OUTPUT_FILE)
 
