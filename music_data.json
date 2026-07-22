@@ -1,0 +1,62 @@
+[
+    {
+        "artist_name": "mukesh",
+        "track_name": "mohabbat bhi jhoothi",
+        "genre": "pop",
+        "release_date": "1950"
+    },
+    {
+        "artist_name": "frankie laine",
+        "track_name": "i believe",
+        "genre": "pop",
+        "release_date": "1950"
+    },
+    {
+        "artist_name": "johnnie ray",
+        "track_name": "cry",
+        "genre": "pop",
+        "release_date": "1950"
+    },
+    {
+        "artist_name": "pérez prado",
+        "track_name": "patricia",
+        "genre": "pop",
+        "release_date": "1950"
+    },
+    {
+        "artist_name": "giorgos papadopoulos",
+        "track_name": "apopse eida oneiro",
+        "genre": "pop",
+        "release_date": "1950"
+    },
+    {
+        "artist_name": "perry como",
+        "track_name": "round and round (with mitchell ayres and his orchestra & the ray charles singers)",
+        "genre": "pop",
+        "release_date": "1950"
+    },
+    {
+        "artist_name": "freestyle",
+        "track_name": "opm medley: when i met you",
+        "genre": "pop",
+        "release_date": "1950"
+    },
+    {
+        "artist_name": "johnny mathis",
+        "track_name": "it's not for me to say",
+        "genre": "pop",
+        "release_date": "1950"
+    },
+    {
+        "artist_name": "stélios kazantzídis",
+        "track_name": "klapse me mana klapse me",
+        "genre": "pop",
+        "release_date": "1950"
+    },
+    {
+        "artist_name": "stélios kazantzídis",
+        "track_name": "finito la mouzika",
+        "genre": "pop",
+        "release_date": "1950"
+    }
+]
