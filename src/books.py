@@ -1,6 +1,7 @@
 import csv
 import json
 import random
+import re
 from pathlib import Path
 
 csv_file = Path("data/booksdata.csv")
@@ -32,24 +33,31 @@ def clean_books(books):
     cleaned_books = []
 
     for book in books:
-        cleaned_book = {}
+        parsed_authors = clean_authors(book.get("Authors", ""))
 
-        cleaned_book["text_number"] = book.get("Text#", "").strip()
-        cleaned_book["type"] = book.get("Type", "").strip()
-        cleaned_book["issued"] = book.get("Issued", "").strip()
-        cleaned_book["title"] = book.get("Title", "").strip()
-        cleaned_book["language"] = book.get("Language", "").strip()
-        cleaned_book["authors"] = clean_authors(book.get("Authors", ""))
-        cleaned_book["subjects"] = book.get("Subjects", "").strip()
-        cleaned_book["locc"] = book.get("LoCC", "").strip()
-        cleaned_book["bookshelves"] = book.get("Bookshelves", "").strip()
-        cleaned_book["isbn"] = generate_isbn()
+        cleaned_book = {
+          #  "text_number": book.get("Text#", "").strip(),
+          #  "type": book.get("Type", "").strip(),
+            
+            "title": book.get("Title", "").strip(),
+            "issued": book.get("Issued", "").strip(),
+            "language": book.get("Language", "").strip(),
+            "authors": [
+                author["name"]
+                for author in parsed_authors
+            ],
+            "author_lifespan": [
+                author["lifespan"]
+                for author in parsed_authors
+                if author["lifespan"]
+            ],
+            "subjects": clean_subjects(book.get("Subjects", "")),
+         #   "locc": book.get("LoCC", "").strip(),
+            "bookshelves": book.get("Bookshelves", "").strip(),
+            "isbn": generate_isbn()
+        }
 
         cleaned_books.append(cleaned_book)
-
-    # for book in books:
-    #     if "isbn" not in book:
-    #         book["isbn"] = generate_isbn()
 
     return cleaned_books
 
@@ -58,13 +66,45 @@ def clean_authors(author_field):
         return[]
     
     authors = author_field.split(";")
-
     cleaned_authors = []
 
     for author in authors:
-        cleaned_authors.append(author.strip())
+        author = author.strip()
+
+        lifespan_match = re.search(
+            r"\b\d{3,4}\??(?:\s+BCE)?-\d{3,4}\??(?:\s+BCE)?\b",
+            author
+        )
+        if lifespan_match:
+            lifespan = lifespan_match.group()
+
+            name = author.replace(lifespan, "")
+            name = name.strip(" ,")
+        else:
+            lifespan = ""
+            name = author
+
+        cleaned_authors.append({
+            "name": name,
+            "lifespan": lifespan
+        })
 
     return cleaned_authors
+
+def clean_subjects(subject_field):
+    if not subject_field:
+        return []
+    
+    subjects = subject_field.split(";")
+    cleaned_subjects = []
+
+    for subject in subjects:
+        subject = subject.strip()
+
+        if subject:
+            cleaned_subjects.append(subject)
+
+    return cleaned_subjects
 
 def validate_books(cleaned_books):
     valid_books = []
