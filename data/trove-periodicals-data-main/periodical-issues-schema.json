@@ -1,0 +1,44 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "`nla.obj` identifier for the issue"
+    },
+    {
+      "name": "title_id",
+      "type": "string",
+      "description": "`nla.obj` identifier for the periodical"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "title of the periodical"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "additional issue publication details, eg: 'Volume 1, issue 1'"
+    },
+    {
+      "name": "date",
+      "type": "date",
+      "description": "issue publication date"
+    },
+    {
+      "name": "url",
+      "type": "string",
+      "description": "url to view the issue in Trove"
+    },
+    {
+      "name": "pages",
+      "type": "integer",
+      "description": "number of pages in this issue"
+    },
+    {
+      "name": "text_download_url",
+      "type": "string",
+      "description": "url to download OCRd text from this issue"
+    }
+  ]
+}

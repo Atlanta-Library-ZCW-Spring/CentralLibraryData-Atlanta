@@ -1,0 +1,362 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.1/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "author": [
+                {
+                    "@id": "https://orcid.org/0000-0001-7956-4498"
+                }
+            ],
+            "datePublished": "2024-03-18",
+            "description": "This dataset was created by checking, correcting, and enriching data about digitised periodicals obtained from the Trove API. Additional metadata describing periodical titles and issues was extracted from the Trove website and used to check the API results. Where titles were wrongly described as issues, and vice versa, the records were corrected. Additional descriptive metadata was also added into the records. Separate CSV formatted data files were created for titles and issues. Finally, the titles and issues data was loaded into an SQLite database for use with Datasette.",
+            "distribution": {
+                "@id": "https://github.com/GLAM-Workbench/trove-periodicals-data/archive/refs/heads/main.zip"
+            },
+            "hasPart": [
+                {
+                    "@id": "https://github.com/GLAM-Workbench/trove-journals/blob/master/periodicals-enrich-for-datasette.ipynb"
+                },
+                {
+                    "@id": "titles-issues-added.ndjson"
+                },
+                {
+                    "@id": "periodical-titles.csv"
+                },
+                {
+                    "@id": "periodical-issues.csv"
+                },
+                {
+                    "@id": "periodicals.db"
+                },
+                {
+                    "@id": "https://github.com/GLAM-Workbench/trove-journals/blob/master/periodicals-from-api.ipynb"
+                },
+                {
+                    "@id": "periodical-titles-schema.json"
+                },
+                {
+                    "@id": "periodical-issues-schema.json"
+                }
+            ],
+            "isBasedOn": {
+                "@id": "https://github.com/GLAM-Workbench/trove-journals/"
+            },
+            "license": {
+                "@id": "https://spdx.org/licenses/MIT"
+            },
+            "mainEntityOfPage": {
+                "@id": "https://glam-workbench.net/trove-journals/periodicals-data-api/"
+            },
+            "name": "trove-periodicals-data",
+            "url": "https://github.com/GLAM-Workbench/trove-periodicals-data/",
+            "workExample": [
+                {
+                    "@id": "https://glam-workbench.net/datasette-lite/?url=https://github.com/GLAM-Workbench/trove-periodicals-data/blob/main/periodicals.db&install=datasette-json-html&install=datasette-template-sql&metadata=https://github.com/GLAM-Workbench/trove-periodicals-data/blob/main/metadata.json"
+                },
+                {
+                    "@id": "https://tdg.glam-workbench.net/other-digitised-resources/periodicals/overview.html"
+                }
+            ]
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.1"
+            },
+            "license": {
+                "@id": "https://creativecommons.org/publicdomain/zero/1.0/"
+            }
+        },
+        {
+            "@id": "https://github.com/GLAM-Workbench/trove-journals/blob/master/periodicals-enrich-for-datasette.ipynb",
+            "@type": [
+                "File",
+                "SoftwareSourceCode"
+            ],
+            "author": [
+                {
+                    "@id": "https://orcid.org/0000-0001-7956-4498"
+                }
+            ],
+            "category": "Harvesting metadata",
+            "codeRepository": "https://github.com/GLAM-Workbench/trove-journals/",
+            "conformsTo": {
+                "@id": "https://purl.archive.org/textcommons/profile#Notebook"
+            },
+            "description": "This notebook tries to fix some problems with the periodicals data from the Trove API. It also enriches the harvested data by extracting additional information from the website. It creates two datasets \u2013 one for titles and one for issues \u2013 and loads these into an SQLite database for use with Datasette Lite.",
+            "encodingFormat": "application/x-ipynb+json",
+            "mainEntityOfPage": {
+                "@id": "https://glam-workbench.net/trove-journals/periodicals-enrich-for-datasette/"
+            },
+            "name": "Enrich the list of periodicals from the Trove API",
+            "position": 2,
+            "programmingLanguage": {
+                "@id": "https://www.python.org/downloads/release/python-31012/"
+            },
+            "url": "https://github.com/GLAM-Workbench/trove-journals/blob/master/periodicals-enrich-for-datasette.ipynb",
+            "workExample": []
+        },
+        {
+            "@id": "titles-issues-added.ndjson",
+            "@type": [
+                "File",
+                "Dataset"
+            ],
+            "contentSize": 4030430,
+            "dateModified": "2024-03-12",
+            "description": "This file contains data describing digitised periodicals available from Trove. The titles and issues data was harvested from the Trove API and combined into a single file. Duplicate titles and Commonwealth Parliamentary Papers were removed. Additional data on issues missing from the API results was scraped from Trove web pages.",
+            "license": {
+                "@id": "https://creativecommons.org/publicdomain/zero/1.0/"
+            },
+            "name": "titles-issues-added.ndjson",
+            "sdDatePublished": "2024-03-18",
+            "size": 949,
+            "url": "https://github.com/GLAM-Workbench/trove-periodicals-data/raw/main/titles-issues-added.ndjson"
+        },
+        {
+            "@id": "periodical-titles.csv",
+            "@type": [
+                "File",
+                "Dataset"
+            ],
+            "conformsTo": {
+                "@id": "periodical-titles-schema.json"
+            },
+            "contentSize": 295509,
+            "dateModified": "2024-03-18",
+            "encodingFormat": "text/csv",
+            "name": "periodical-titles.csv",
+            "sdDatePublished": "2024-03-18",
+            "size": 909,
+            "url": "https://github.com/GLAM-Workbench/trove-periodicals-data/raw/main/periodical-titles.csv"
+        },
+        {
+            "@id": "periodical-issues.csv",
+            "@type": [
+                "File",
+                "Dataset"
+            ],
+            "conformsTo": {
+                "@id": "periodical-issues-schema.json"
+            },
+            "contentSize": 9221860,
+            "dateModified": "2024-03-12",
+            "encodingFormat": "text/csv",
+            "name": "periodical-issues.csv",
+            "sdDatePublished": "2024-03-18",
+            "size": 37016,
+            "url": "https://github.com/GLAM-Workbench/trove-periodicals-data/raw/main/periodical-issues.csv"
+        },
+        {
+            "@id": "periodicals.db",
+            "@type": [
+                "File",
+                "Dataset"
+            ],
+            "contentSize": 12259328,
+            "dateModified": "2024-03-14",
+            "description": "This SQLite database contains data relating to digitised periodical titles and issues from Trove. It was created for use with Datasette-Lite. There is a foreign key link between the issues and the titles, making it easy to find the issues from any title. Some extra columns have been added to include thumbnails and provide links to search for articles in Trove and download OCRd text.",
+            "name": "periodicals.db",
+            "sdDatePublished": "2024-03-18",
+            "url": "https://github.com/GLAM-Workbench/trove-periodicals-data/raw/main/periodicals.db"
+        },
+        {
+            "@id": "https://github.com/GLAM-Workbench/trove-journals/blob/master/periodicals-from-api.ipynb",
+            "@type": [
+                "File",
+                "SoftwareSourceCode"
+            ],
+            "author": [
+                {
+                    "@id": "https://orcid.org/0000-0001-7956-4498"
+                }
+            ],
+            "category": "Harvesting metadata",
+            "codeRepository": "https://github.com/GLAM-Workbench/trove-journals/",
+            "conformsTo": {
+                "@id": "https://purl.archive.org/textcommons/profile#Notebook"
+            },
+            "description": "This notebook uses the /magazine/titles endpoint of the Trove API to get details of digitised periodical titles and issues. It then tries to fix some problems with the data by removing duplicates and Parliamentary Papers, and checking the lists of issues against those scraped from the Trove website.",
+            "encodingFormat": "application/x-ipynb+json",
+            "mainEntityOfPage": {
+                "@id": "https://glam-workbench.net/trove-journals/periodicals-from-api/"
+            },
+            "name": "Get details of periodicals from the `/magazine/titles` API endpoint",
+            "position": 1,
+            "programmingLanguage": {
+                "@id": "https://www.python.org/downloads/release/python-31012/"
+            },
+            "url": "https://github.com/GLAM-Workbench/trove-journals/blob/master/periodicals-from-api.ipynb",
+            "workExample": []
+        },
+        {
+            "@id": "https://orcid.org/0000-0001-7956-4498",
+            "@type": "Person",
+            "mainEntityOfPage": "https://timsherratt.au",
+            "name": "Sherratt, Tim",
+            "orcid": "https://orcid.org/0000-0001-7956-4498"
+        },
+        {
+            "@id": "https://github.com/GLAM-Workbench/trove-journals/",
+            "@type": "Dataset",
+            "name": "trove-journals",
+            "url": "https://github.com/GLAM-Workbench/trove-journals/"
+        },
+        {
+            "@id": "https://github.com/GLAM-Workbench/trove-periodicals-data/archive/refs/heads/main.zip",
+            "@type": "DataDownload",
+            "name": "Download repository as zip",
+            "url": "https://github.com/GLAM-Workbench/trove-periodicals-data/archive/refs/heads/main.zip"
+        },
+        {
+            "@id": "https://spdx.org/licenses/MIT",
+            "@type": "CreativeWork",
+            "name": "MIT License",
+            "url": "https://spdx.org/licenses/MIT.html"
+        },
+        {
+            "@id": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "@type": "CreativeWork",
+            "name": "CC0 Public Domain Dedication",
+            "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+            "@id": "http://rightsstatements.org/vocab/NKC/1.0/",
+            "@type": "CreativeWork",
+            "description": "The organization that has made the Item available reasonably believes that the Item is not restricted by copyright or related rights, but a conclusive determination could not be made.",
+            "name": "No Known Copyright",
+            "url": "http://rightsstatements.org/vocab/NKC/1.0/"
+        },
+        {
+            "@id": "http://rightsstatements.org/vocab/CNE/1.0/",
+            "@type": "CreativeWork",
+            "description": "The copyright and related rights status of this Item has not been evaluated.",
+            "name": "Copyright Not Evaluated",
+            "url": "http://rightsstatements.org/vocab/CNE/1.0/"
+        },
+        {
+            "@id": "https://www.python.org/downloads/release/python-31012/",
+            "@type": [
+                "ComputerLanguage",
+                "SoftwareApplication"
+            ],
+            "name": "Python 3.10.12",
+            "url": "https://www.python.org/downloads/release/python-31012/",
+            "version": "3.10.12"
+        },
+        {
+            "@id": "https://glam-workbench.net/trove-journals/periodicals-enrich-for-datasette/",
+            "@type": "CreativeWork",
+            "isPartOf": {
+                "@id": "https://glam-workbench.net"
+            },
+            "name": "Periodicals enrich for datasette",
+            "url": "https://glam-workbench.net/trove-journals/periodicals-enrich-for-datasette/"
+        },
+        {
+            "@id": "#periodicals-enrich-for-datasette_run_0",
+            "@type": "CreateAction",
+            "actionStatus": {
+                "@id": "http://schema.org/CompletedActionStatus"
+            },
+            "endDate": "2024-03-18",
+            "instrument": {
+                "@id": "https://github.com/GLAM-Workbench/trove-journals/blob/master/periodicals-enrich-for-datasette.ipynb"
+            },
+            "name": "Run of notebook: periodicals-enrich-for-datasette.ipynb",
+            "object": [
+                {
+                    "@id": "titles-issues-added.ndjson"
+                }
+            ],
+            "result": [
+                {
+                    "@id": "periodical-titles.csv"
+                },
+                {
+                    "@id": "periodical-issues.csv"
+                },
+                {
+                    "@id": "periodicals.db"
+                }
+            ]
+        },
+        {
+            "@id": "https://glam-workbench.net/trove-journals/periodicals-data-api/",
+            "@type": "CreativeWork",
+            "isPartOf": {
+                "@id": "https://glam-workbench.net"
+            },
+            "name": "Details of digitised periodicals from the `/magazine/titles` API endpoint",
+            "url": "https://glam-workbench.net/trove-journals/periodicals-data-api/"
+        },
+        {
+            "@id": "https://glam-workbench.net/datasette-lite/?url=https://github.com/GLAM-Workbench/trove-periodicals-data/blob/main/periodicals.db&install=datasette-json-html&install=datasette-template-sql&metadata=https://github.com/GLAM-Workbench/trove-periodicals-data/blob/main/metadata.json",
+            "@type": "CreativeWork",
+            "name": "Explore in Datasette",
+            "url": "https://glam-workbench.net/datasette-lite/?url=https://github.com/GLAM-Workbench/trove-periodicals-data/blob/main/periodicals.db&install=datasette-json-html&install=datasette-template-sql&metadata=https://github.com/GLAM-Workbench/trove-periodicals-data/blob/main/metadata.json"
+        },
+        {
+            "@id": "https://tdg.glam-workbench.net/other-digitised-resources/periodicals/overview.html",
+            "@type": "CreativeWork",
+            "name": "Visualised in the Trove Data Guide",
+            "url": "https://tdg.glam-workbench.net/other-digitised-resources/periodicals/overview.html"
+        },
+        {
+            "@id": "https://glam-workbench.net/trove-journals/periodicals-from-api/",
+            "@type": "CreativeWork",
+            "isPartOf": {
+                "@id": "https://glam-workbench.net"
+            },
+            "name": "Periodicals from api",
+            "url": "https://glam-workbench.net/trove-journals/periodicals-from-api/"
+        },
+        {
+            "@id": "#periodicals-from-api_run_0",
+            "@type": "CreateAction",
+            "actionStatus": {
+                "@id": "http://schema.org/CompletedActionStatus"
+            },
+            "endDate": "2024-03-12",
+            "instrument": {
+                "@id": "https://github.com/GLAM-Workbench/trove-journals/blob/master/periodicals-from-api.ipynb"
+            },
+            "name": "Run of notebook: periodicals-from-api.ipynb",
+            "result": [
+                {
+                    "@id": "titles-issues-added.ndjson"
+                }
+            ]
+        },
+        {
+            "@id": "periodical-titles-schema.json",
+            "@type": [
+                "File"
+            ],
+            "conformsTo": {
+                "@id": "https://specs.frictionlessdata.io/table-schema/"
+            },
+            "encodingFormat": "application/json",
+            "name": "Frictionless Table Schema for periodical-titles.csv dataset",
+            "url": "https://github.com/GLAM-Workbench/trove-periodicals-data/raw/main/periodical-titles-schema.json"
+        },
+        {
+            "@id": "periodical-issues-schema.json",
+            "@type": [
+                "File"
+            ],
+            "conformsTo": {
+                "@id": "https://specs.frictionlessdata.io/table-schema/"
+            },
+            "encodingFormat": "application/json",
+            "name": "Frictionless Table Schema for periodical-issues.csv dataset",
+            "url": "https://github.com/GLAM-Workbench/trove-periodicals-data/raw/main/periodical-issues-schema.json"
+        }
+    ]
+}

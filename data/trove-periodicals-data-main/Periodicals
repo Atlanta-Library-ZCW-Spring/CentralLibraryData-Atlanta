@@ -1,0 +1,19 @@
+import pandas as pd
+#loading both periodical datasets into a dataframe
+titles_df = pd.read_csv("periodical-titles.csv")
+issues_df = pd.read_csv("periodical-issues.csv")
+
+print(titles_df.columns)
+print(issues_df.columns)
+
+print(titles_df.head())
+print(issues_df.head())
+
+
+
+print(titles_df[["id", "title"]].head())
+print(issues_df[["title_id", "title"]].head())
+
+#merge_df = pd.merge(issues_df, titles_df, on="title", how="inner")
+#print(merge_df.head())
+

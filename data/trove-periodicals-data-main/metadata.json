@@ -1,0 +1,19 @@
+{
+    "title": "GLAM Workbench Data Explorer",
+    "description": "Explore Trove's collection of digitised periodicals!",
+    "source": "trove-periodicals-data",
+    "source_url": "https://github.com/GLAM-Workbench/trove-periodicals-data",
+    "databases": {
+        "periodicals": {
+            "tables": {
+                "titles": {
+                    "sort": "title",
+                    "searchmode": "raw"
+                },
+                "issues": {
+                    "sort": "title_id"
+                }
+            }
+        }
+    }
+}

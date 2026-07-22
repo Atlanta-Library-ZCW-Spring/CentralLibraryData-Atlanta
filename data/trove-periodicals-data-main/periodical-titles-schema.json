@@ -1,0 +1,79 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "`nla.obj` identifier for the periodical"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "title of the periodical"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "additional information, eg 'Issues 1-7 (incomplete)'"
+    },
+    {
+      "name": "publisher",
+      "type": "string",
+      "description": "publisher of periodical"
+    },
+    {
+      "name": "trove_url",
+      "type": "string",
+      "description": "url to view digitised periodical in Trove"
+    },
+    {
+      "name": "download_text",
+      "type": "string",
+      "description": "url to download a zip file containing OCRd text from this title"
+    },
+    {
+      "name": "issue_count",
+      "type": "integer",
+      "description": "number of digitised issues in Trove"
+    },
+    {
+      "name": "start_date",
+      "type": "date",
+      "description": "earliest publication date"
+    },
+    {
+      "name": "end_date",
+      "type": "date",
+      "description": "latest publication date"
+    },
+    {
+      "name": "start_year",
+      "type": "integer",
+      "description": "publication year of first digitised issue"
+    },
+    {
+      "name": "end_year",
+      "type": "integer",
+      "description": "publication year of last digitised issue"
+    },
+    {
+      "name": "extent",
+      "type": "string",
+      "description": "physical description, eg: '2 v; 22 cm'"
+    },
+    {
+      "name": "place",
+      "type": "string",
+      "description": "locations associated with this periodical"
+    },
+    {
+      "name": "issn",
+      "type": "string",
+      "description": "ISSN"
+    },
+    {
+      "name": "catalogue_url",
+      "type": "string",
+      "description": "link to NLA catalogue"
+    }
+  ]
+}
