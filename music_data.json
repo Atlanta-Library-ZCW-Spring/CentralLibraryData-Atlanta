@@ -58,5 +58,17 @@
         "track_name": "finito la mouzika",
         "genre": "pop",
         "release_date": "1950"
+    },
+    {
+        "artist_name": "liva weel",
+        "track_name": "drømmer man om den, vågner..",
+        "genre": "pop",
+        "release_date": "1951"
+    },
+    {
+        "artist_name": "the chordettes",
+        "track_name": "carolina moon",
+        "genre": "pop",
+        "release_date": "1951"
     }
 ]
