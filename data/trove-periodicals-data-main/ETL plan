@@ -11,6 +11,7 @@ Understand the data
     issues.title_id references the parent periodical.
     titles contains publication metadata (publisher, ISSN, start/end dates).
     issues contains issue-specific metadata (publication date, pages, description).
+    merging both dfs using pandas using the title.id and issues.title_id as unique key f
 
 Transform
     Merge titles with issues
@@ -108,3 +109,5 @@ Keep Publication Date
 | `pages`           | `issues.pages`       | None           |
 | `volume`          | `issues.description` | Extract        |
 | `issueNumber`     | `issues.description` | Extract        |
+
+
