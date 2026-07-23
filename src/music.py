@@ -6,6 +6,7 @@ import pandas as pd
 
 INPUT_FILE = Path("tcc_ceds_music.csv")
 OUTPUT_FILE = Path("music_data.json")
+OUTPUT_FILE_20 = Path("music_data_20.json")
 
 REQUIRED_COLUMNS = [
     "artist_name",
@@ -57,13 +58,19 @@ def write_json(data, output_file):
 
 def main():
 
-    music_data = extract_music_data(input_file=INPUT_FILE)
+    music_data = extract_music_data(INPUT_FILE)
 
-    write_json(data=music_data, output_file=OUTPUT_FILE)
+    # Write all records
+    write_json(music_data, OUTPUT_FILE)
+
+    # Write first 20 records (index 0-19)
+    first_20_records = music_data[:20]
+    write_json(first_20_records, OUTPUT_FILE_20)
 
     print("Extraction completed successfully.")
-    print(f"Records extracted: {len(music_data)}")
-    print(f"Output file: {OUTPUT_FILE}")
+    print(f"Total records extracted: {len(music_data)}")
+    print(f"Full JSON file: {OUTPUT_FILE}")
+    print(f"First 20 records JSON file: {OUTPUT_FILE_20}")
 
 
 if __name__ == "__main__":
