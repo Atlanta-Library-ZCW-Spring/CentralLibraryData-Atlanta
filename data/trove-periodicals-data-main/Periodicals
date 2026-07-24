@@ -20,6 +20,14 @@ def merge_data(titles_df, issues_df):
 
 merged_df = merge_data(titles_df, issues_df)
 
+# Clean missing descriptions
+merged_df["description_y"] = merged_df["description_y"].fillna("")
+
+
+# ADD VOLUME EXTRACTION HERE
+merged_df["volume"] = merged_df["description_y"].str.extract(
+    r"(?:Volume|Vol\.)\s*(\d+)"
+)
 
 #details on merged df for exploration
 #print(merged_df.shape)
@@ -65,7 +73,8 @@ clean_df = merged_df[ #created a new merged df with only the fields i need to se
         "place",
         "date",
         "pages",
-        "description_y"
+        "description_y",
+        "volume"
     ]
 ].copy() 
 
@@ -83,6 +92,7 @@ print(clean_df.columns)
 print(clean_df.head())
 print(clean_df.info()) #shows column names, missing values, and data types
 
+print(clean_df[["description", "volume"]].head(20))
 
 #JSON export
 print(clean_df.info())
