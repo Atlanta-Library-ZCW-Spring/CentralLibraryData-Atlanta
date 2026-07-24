@@ -196,3 +196,6 @@ cython_debug/
 # LMS
 
 *.json
+music_data.json
+tcc_ceds_music.csv
+music_test.py
