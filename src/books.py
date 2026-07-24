@@ -5,9 +5,7 @@ import re
 import requests
 from pathlib import Path
 
-url = "https://openlibrary.org/search.json"
-
-csv_file = Path("data/booksdata.csv")
+csv_file = Path("data/pg_catalog.csv")
 json_file = Path("data/booksout.json")
 used_isbns = set()
 
@@ -20,19 +18,17 @@ def generate_isbn():  #generate a unique 13 digit isbn-like number
             used_isbns.add(isbn)
             return isbn
         
-def get_genre(title,author):
+# def get_genre(title,author):
+#     paramaters = {
+#         "title": title,
+#         "author": author,
+#         "limit": 1
+#     }
+#     response = requests.get(url, params=paramaters, timeout=10)
+#     if response.status_code != 200:
+#         return "Unknown"
     
-
-    paramaters = {
-        "title": title,
-        "author": author,
-        "limit": 1
-    }
-    response = requests.get(url, params=paramaters, timeout=10)
-    if response.status_code != 200:
-        return "Unknown"
-    
-    data = response.json()
+#     data = response.json()
 
 def read_books(csv_file):
     with open(csv_file, 'r', encoding="utf-8") as file:
@@ -44,6 +40,24 @@ def read_books(csv_file):
 
     return books 
 
+def get_genre(bookshelves_field):
+
+    if not bookshelves_field:
+        return "Unknown"
+
+    bookshelves = bookshelves_field.split(";")
+
+    for shelf in bookshelves:
+        shelf = shelf.strip()
+
+        if shelf.startswith("Browsing:"):
+            continue
+
+        if shelf:
+            return shelf
+
+    return "Unknown"
+
 def clean_books(books):
     """1.  Add an isbn to each book/row
     """
@@ -51,6 +65,7 @@ def clean_books(books):
 
     for book in books:
         parsed_authors = clean_authors(book.get("Authors", ""))
+        parsed_subjects = clean_subjects(book.get("Subjects", ""))
 
         cleaned_book = {
           #  "text_number": book.get("Text#", "").strip(),
@@ -70,7 +85,7 @@ def clean_books(books):
             ],
             "isbn": generate_isbn(),
             "numberOfPages": None,
-            "genre": None,
+            "genre": get_genre(book.get("Bookshelves", "")),
             "subjects": clean_subjects(book.get("Subjects", "")),
             "locc": book.get("LoCC", "").strip(),
          #   "bookshelves": book.get("Bookshelves", "").strip(),
@@ -131,11 +146,13 @@ def validate_books(cleaned_books):
     missing_title = 0
     missing_authors = 0
     invalid_isbn = 0
+    record_number = 1
 
     for book in cleaned_books:
+
         title = book.get("title", "").strip()
         authors = book.get("authors", [])
-        isbn = book.get("isbn","").strip()
+        isbn = book.get("isbn", "").strip()
 
         if not title:
             missing_title += 1
@@ -149,11 +166,21 @@ def validate_books(cleaned_books):
             invalid_isbn += 1
             continue
 
-        valid_books.append(book)
+        # Create a new dictionary with recordID as the first field
+        new_book = {
+            "recordID": f"{record_number:06d}"
+        }
 
-    print("Missing title: ", missing_title)
-    print("Missing authors: ", missing_authors)
-    print("Invalid ISBN: ", invalid_isbn)
+        # Add the rest of the book fields
+        new_book.update(book)
+
+        valid_books.append(new_book)
+        record_number += 1
+
+    print("Missing title:", missing_title)
+    print("Missing authors:", missing_authors)
+    print("Invalid ISBN:", invalid_isbn)
+    print("Books validated:", len(valid_books))
 
     return valid_books
 
