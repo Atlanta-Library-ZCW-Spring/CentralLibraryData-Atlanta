@@ -2,7 +2,8 @@ import csv
 import json
 import random
 import re
-import requests
+
+
 from pathlib import Path
 
 csv_file = Path("data/pg_catalog.csv")
