@@ -1,0 +1,113 @@
+My ETL plain for Atlanta Library Periodicals:
+
+Extract
+    Load periodicals.cdv into pandas
+There are 2 csv file types and they need to be linked in some way:
+    periodical issues
+    periodical titles
+
+Understand the data
+    titles.id uniquely identifies a periodical.
+    issues.title_id references the parent periodical.
+    titles contains publication metadata (publisher, ISSN, start/end dates).
+    issues contains issue-specific metadata (publication date, pages, description).
+    merging both dfs using pandas using the title.id and issues.title_id as unique key 
+
+Transform
+    Merge titles with issues
+    Use periodical id to match records
+    Extract volume from description 
+    Extract issue number from description
+    Inspect columns
+    Rename columns to match ask from Java team
+    Remove duplicate records
+    Convert publishing_date into month/date/year format
+    Keep ISSN values
+    Keep publisher
+    Keep publication date 
+    Handle any missing values
+    Rename columns if Java team requires different names
+
+Load 
+    Export cleaned DataFrame to JSON
+
+Java Team Columns Requested
+    Title of perodical
+    Publisher
+    ISSN --> for periodical not issue specific
+    Place --> locations associated with periodical
+    Issue publication date--> ex: mar 2023, april 2023
+    Pages --> in issues
+    Volume #--> find in descption for issues
+    Issue # --> find in descption for issues
+    Periodical Publishing date-> lastest publication year or check description(if the publication is active or not)
+    
+   
+  
+    JSON file schema:
+    fields:"
+    name:title
+    type: string
+    descption: "title of periodical"
+
+    name:publisher
+    type: string
+    descption: "publisher of periodical"
+
+    name:ISSN
+    type: string
+    descption: ISSN of periodical"
+
+    name:location (place)
+    type: string
+    descption: "location associated with periodical"
+
+    name:publication date (date)
+    type: date
+    descption: "issue publication date"
+
+    name:pages
+    type: integer
+    descption: "number of pages in this issue"
+
+    name:volume (description)
+    type: integer
+    descption: "volume of issue"
+
+    name:issue number (description)
+    type: integer
+    descption: "issue number"
+
+   
+
+Flow chart of transformation:
+      CSV
+        ↓
+Merge the two datasets
+        ↓
+Extract Volume
+        ↓
+Extract Issue Number
+        ↓
+Keep Publisher
+        ↓
+Keep ISSN
+        ↓
+Keep Place
+        ↓
+Keep Publication Date
+        ↓
+     JSON
+
+| JSON Field        | Source               | Transformation |
+| ----------------- | -------------------- | -------------- |
+| `title`           | `titles.title`       | None           |
+| `publisher`       | `titles.publisher`   | None           |
+| `issn`            | `titles.issn`        | None           |
+| `place`           | `titles.place`       | None           |
+| `publicationDate` | `issues.date`        | Rename         |
+| `pages`           | `issues.pages`       | None           |
+| `volume`          | `issues.description` | Extract        |
+| `issueNumber`     | `issues.description` | Extract        |
+
+
