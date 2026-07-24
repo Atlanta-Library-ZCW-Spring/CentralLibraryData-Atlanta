@@ -3,7 +3,6 @@ import json
 import random
 import re
 
-
 from pathlib import Path
 
 csv_file = Path("data/pg_catalog.csv")
@@ -18,18 +17,6 @@ def generate_isbn():  #generate a unique 13 digit isbn-like number
         if isbn not in used_isbns:
             used_isbns.add(isbn)
             return isbn
-        
-# def get_genre(title,author):
-#     paramaters = {
-#         "title": title,
-#         "author": author,
-#         "limit": 1
-#     }
-#     response = requests.get(url, params=paramaters, timeout=10)
-#     if response.status_code != 200:
-#         return "Unknown"
-    
-#     data = response.json()
 
 def read_books(csv_file):
     with open(csv_file, 'r', encoding="utf-8") as file:
@@ -42,39 +29,42 @@ def read_books(csv_file):
     return books 
 
 def get_genre(bookshelves_field):
-
     if not bookshelves_field:
-        return "Unknown"
+        return "Not Available"
 
     bookshelves = bookshelves_field.split(";")
+
+    # genres = []
 
     for shelf in bookshelves:
         shelf = shelf.strip()
 
         if shelf.startswith("Browsing:"):
-            continue
+            shelf = shelf.replace("Browsing:", "", 1)
+            shelf = shelf.strip()
 
         if shelf:
             return shelf
 
-    return "Unknown"
+    return "Not Available"
 
 def clean_books(books):
-    """1.  Add an isbn to each book/row
-    """
+    """1.  Add an isbn to each book/row"""
+    
     cleaned_books = []
-
     for book in books:
         parsed_authors = clean_authors(book.get("Authors", ""))
         parsed_subjects = clean_subjects(book.get("Subjects", ""))
 
-        cleaned_book = {
-          #  "text_number": book.get("Text#", "").strip(),
-          #  "type": book.get("Type", "").strip(),
-            
+        # bookshelves_value = book.get("Bookshelves", "")
+        # genre = get_genre(bookshelves_value)
+        # print(f"Title: {book.get('Title', '').strip()}")
+        # print(f"Bookshelves: '{bookshelves_value}'")
+        # print(f"Genre returned: '{genre}'")
+        # print("-" * 40)
+
+        cleaned_book = {            
             "title": book.get("Title", "").strip(),
-          #  "issued": book.get("Issued", "").strip(),
-          #  "language": book.get("Language", "").strip(),
             "authors": [
                 author["name"]
                 for author in parsed_authors
@@ -85,12 +75,11 @@ def clean_books(books):
                 if author["lifespan"]
             ],
             "isbn": generate_isbn(),
-            "numberOfPages": None,
+            "numberOfPages": 0,
+
             "genre": get_genre(book.get("Bookshelves", "")),
-            "subjects": clean_subjects(book.get("Subjects", "")),
-            "locc": book.get("LoCC", "").strip(),
-         #   "bookshelves": book.get("Bookshelves", "").strip(),
-            
+            "subjects": parsed_subjects,
+            "locc": book.get("LoCC", "").strip()   
         }
 
         cleaned_books.append(cleaned_book)
@@ -194,16 +183,9 @@ def write_json(valid_books, json_file):
 
 if __name__ == "__main__":
     books = read_books(csv_file)
-
     cleaned_books = clean_books(books)
-
-    print(cleaned_books[0])
-    print(cleaned_books[0].keys())
-
     valid_books = validate_books(cleaned_books)
-
     books_to_process = valid_books[:50]
-
 
     print("Books read: ", len(books))
     print("Books cleaned: ", len(cleaned_books))
