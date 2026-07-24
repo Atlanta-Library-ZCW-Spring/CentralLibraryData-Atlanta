@@ -1,0 +1,941 @@
+[
+    {
+        "title": "The Declaration of Independence of the United States of America",
+        "authors": [
+            "Jefferson, Thomas"
+        ],
+        "author_lifespan": [
+            "1743-1826"
+        ],
+        "isbn": "2237017484115",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "United States -- History -- Revolution, 1775-1783 -- Sources",
+            "United States. Declaration of Independence"
+        ],
+        "locc": "E201; JK"
+    },
+    {
+        "title": "The United States Bill of Rights\nThe Ten Original Amendments to the Constitution of the United States",
+        "authors": [
+            "United States"
+        ],
+        "author_lifespan": [],
+        "isbn": "9811626450377",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Civil rights -- United States -- Sources",
+            "United States. Constitution. 1st-10th Amendments"
+        ],
+        "locc": "JK; KF"
+    },
+    {
+        "title": "John F. Kennedy'sMilton",
+        "authors": [
+            "en"
+        ],
+        "author_lifespan": [],
+        "isbn": "9751360059472",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Kennedy, John F. (John Fitzgerald), 1917-1963"
+        ],
+        "locc": "United States -- Foreign relations -- 1961-1963; Presidents -- United States -- Inaugural addresses"
+    },
+    {
+        "title": "Lincoln's Gettysburg Address\nGiven November 19, 1863 on the battlefield near Gettysburg, Pennsylvania, USA",
+        "authors": [
+            "Lincoln, Abraham"
+        ],
+        "author_lifespan": [
+            "1809-1865"
+        ],
+        "isbn": "7537213558237",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Consecration of cemeteries -- Pennsylvania -- Gettysburg",
+            "Soldiers' National Cemetery (Gettysburg, Pa.)",
+            "Lincoln, Abraham, 1809-1865. Gettysburg address"
+        ],
+        "locc": "E456"
+    },
+    {
+        "title": "The United States Constitution",
+        "authors": [
+            "United States"
+        ],
+        "author_lifespan": [],
+        "isbn": "4271978397752",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "United States -- Politics and government -- 1783-1789 -- Sources",
+            "United States. Constitution"
+        ],
+        "locc": "JK; KF"
+    },
+    {
+        "title": "Give Me Liberty or Give Me Death",
+        "authors": [
+            "Henry, Patrick"
+        ],
+        "author_lifespan": [
+            "1736-1799"
+        ],
+        "isbn": "7799634185306",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Speeches, addresses, etc., American",
+            "United States -- Politics and government -- 1775-1783 -- Sources",
+            "Virginia -- Politics and government -- 1775-1783 -- Sources"
+        ],
+        "locc": "E201"
+    },
+    {
+        "title": "Abraham Lincoln's Second Inaugural Address",
+        "authors": [
+            "Lincoln, Abraham"
+        ],
+        "author_lifespan": [
+            "1809-1865"
+        ],
+        "isbn": "1123563265749",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "United States -- Politics and government -- 1861-1865",
+            "Presidents -- United States -- Inaugural addresses"
+        ],
+        "locc": "E456"
+    },
+    {
+        "title": "Abraham Lincoln's First Inaugural Address",
+        "authors": [
+            "Lincoln, Abraham"
+        ],
+        "author_lifespan": [
+            "1809-1865"
+        ],
+        "isbn": "3467959189888",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "United States -- Politics and government -- 1861-1865",
+            "Presidents -- United States -- Inaugural addresses"
+        ],
+        "locc": "E456"
+    },
+    {
+        "title": "Alice's Adventures in Wonderland",
+        "authors": [
+            "Carroll, Lewis"
+        ],
+        "author_lifespan": [
+            "1832-1898"
+        ],
+        "isbn": "9777771910407",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Fantasy fiction",
+            "Children's stories",
+            "Imaginary places -- Juvenile fiction",
+            "Alice (Fictitious character from Carroll) -- Juvenile fiction"
+        ],
+        "locc": "PR; PZ"
+    },
+    {
+        "title": "Through the Looking-Glass",
+        "authors": [
+            "Carroll, Lewis"
+        ],
+        "author_lifespan": [
+            "1832-1898"
+        ],
+        "isbn": "6292519052466",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Fantasy fiction",
+            "Children's stories",
+            "Imaginary places -- Juvenile fiction",
+            "Alice (Fictitious character from Carroll) -- Juvenile fiction"
+        ],
+        "locc": "PR; PZ"
+    },
+    {
+        "title": "The Hunting of the Snark: An Agony in Eight Fits",
+        "authors": [
+            "Carroll, Lewis"
+        ],
+        "author_lifespan": [
+            "1832-1898"
+        ],
+        "isbn": "1002432292942",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Nonsense verses, English"
+        ],
+        "locc": "PR"
+    },
+    {
+        "title": "The 1990 CIA World Factbook",
+        "authors": [
+            "United States. Central Intelligence Agency"
+        ],
+        "author_lifespan": [],
+        "isbn": "5078132711984",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "World politics -- Handbooks, manuals, etc.",
+            "Geography -- Handbooks, manuals, etc.",
+            "Political science -- Handbooks, manuals, etc.",
+            "Political statistics -- Handbooks, manuals, etc."
+        ],
+        "locc": "G"
+    },
+    {
+        "title": "Moby-Dick; or, The Whale",
+        "authors": [
+            "Melville, Herman"
+        ],
+        "author_lifespan": [
+            "1819-1891"
+        ],
+        "isbn": "3536847369637",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Whaling -- Fiction",
+            "Sea stories",
+            "Psychological fiction",
+            "Ship captains -- Fiction",
+            "Adventure stories",
+            "Mentally ill -- Fiction",
+            "Ahab, Captain (Fictitious character) -- Fiction",
+            "Whales -- Fiction",
+            "Whaling ships -- Fiction"
+        ],
+        "locc": "PS"
+    },
+    {
+        "title": "Peter Pan",
+        "authors": [
+            "Barrie, J. M. (James Matthew)"
+        ],
+        "author_lifespan": [
+            "1860-1937"
+        ],
+        "isbn": "7916834897771",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Fantasy literature",
+            "Peter Pan (Fictitious character) -- Fiction",
+            "Never-Never Land (Imaginary place) -- Fiction",
+            "Pirates -- Fiction",
+            "Fairies -- Fiction"
+        ],
+        "locc": "PR; PZ"
+    },
+    {
+        "title": "The Book of Mormon",
+        "authors": [
+            "Smith, Joseph, Jr.",
+            "Church of Jesus Christ of Latter-day Saints"
+        ],
+        "author_lifespan": [
+            "1805-1844"
+        ],
+        "isbn": "4710435027331",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Church of Jesus Christ of Latter-day Saints -- Sacred books",
+            "Latter Day Saint churches -- Sacred books"
+        ],
+        "locc": "BX"
+    },
+    {
+        "title": "The Federalist Papers",
+        "authors": [
+            "Hamilton, Alexander",
+            "Jay, John",
+            "Madison, James"
+        ],
+        "author_lifespan": [
+            "1757-1804",
+            "1745-1829",
+            "1751-1836"
+        ],
+        "isbn": "8957053841387",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Constitutional history -- United States -- Sources",
+            "Constitutional law -- United States"
+        ],
+        "locc": "JK; KF"
+    },
+    {
+        "title": "The Song of Hiawatha",
+        "authors": [
+            "Longfellow, Henry Wadsworth",
+            "Morris, Woodrow W. [Editor]"
+        ],
+        "author_lifespan": [
+            "1807-1882"
+        ],
+        "isbn": "6532892231626",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Indians of North America -- Poetry",
+            "Hiawatha, active 15th century -- Poetry",
+            "Iroquois Indians -- Kings and rulers -- Poetry"
+        ],
+        "locc": "PS"
+    },
+    {
+        "title": "Paradise Lost",
+        "authors": [
+            ""
+        ],
+        "author_lifespan": [
+            "1608-1674"
+        ],
+        "isbn": "3589744407298",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Fall of man -- Poetry",
+            "Adam (Biblical figure) -- Poetry",
+            "Eve (Biblical figure) -- Poetry",
+            "Bible. Genesis -- History of Biblical events -- Poetry"
+        ],
+        "locc": "PR"
+    },
+    {
+        "title": "Aesop's Fables\nTranslated by George Fyler Townsend",
+        "authors": [
+            "Aesop",
+            "Townsend, George Fyler,  [Translator]"
+        ],
+        "author_lifespan": [
+            "621? BCE-565? BCE",
+            "1814-1900"
+        ],
+        "isbn": "9165562697694",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Fables, Greek -- Translations into English",
+            "Aesop's fables -- Translations into English"
+        ],
+        "locc": "PA; PZ"
+    },
+    {
+        "title": "Roget's Thesaurus",
+        "authors": [
+            "Roget, Peter Mark"
+        ],
+        "author_lifespan": [
+            "1779-1869"
+        ],
+        "isbn": "8831346331568",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "English language -- Synonyms and antonyms"
+        ],
+        "locc": "PE"
+    },
+    {
+        "title": "Narrative of the Life of Frederick Douglass, an American Slave",
+        "authors": [
+            "Douglass, Frederick"
+        ],
+        "author_lifespan": [
+            "1818-1895"
+        ],
+        "isbn": "4668666238824",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Douglass, Frederick, 1818-1895",
+            "African American abolitionists -- Biography",
+            "Abolitionists -- United States -- Biography",
+            "Enslaved persons -- United States -- Biography"
+        ],
+        "locc": "E300"
+    },
+    {
+        "title": "O Pioneers!",
+        "authors": [
+            "Cather, Willa"
+        ],
+        "author_lifespan": [
+            "1873-1947"
+        ],
+        "isbn": "9030297296467",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Nebraska -- Fiction",
+            "Historical fiction",
+            "Frontier and pioneer life -- Nebraska -- Fiction",
+            "Domestic fiction",
+            "Siblings -- Fiction",
+            "Farm life -- Fiction",
+            "Women pioneers -- Fiction",
+            "Women farmers -- Fiction",
+            "Women immigrants -- Fiction",
+            "Swedish Americans -- Fiction"
+        ],
+        "locc": "PS"
+    },
+    {
+        "title": "The 1991 CIA World Factbook",
+        "authors": [
+            "United States. Central Intelligence Agency"
+        ],
+        "author_lifespan": [],
+        "isbn": "4042864181615",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "World politics -- Handbooks, manuals, etc.",
+            "Geography -- Handbooks, manuals, etc.",
+            "Political science -- Handbooks, manuals, etc.",
+            "Political statistics -- Handbooks, manuals, etc."
+        ],
+        "locc": "G"
+    },
+    {
+        "title": "Paradise Lost",
+        "authors": [
+            "Milton, John"
+        ],
+        "author_lifespan": [
+            "1608-1674"
+        ],
+        "isbn": "8201233846207",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Fall of man -- Poetry",
+            "Adam (Biblical figure) -- Poetry",
+            "Eve (Biblical figure) -- Poetry",
+            "Bible. Genesis -- History of Biblical events -- Poetry"
+        ],
+        "locc": "PR"
+    },
+    {
+        "title": "Far from the Madding Crowd",
+        "authors": [
+            "Hardy, Thomas"
+        ],
+        "author_lifespan": [
+            "1840-1928"
+        ],
+        "isbn": "7153487373502",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Didactic fiction",
+            "Love stories",
+            "Triangles (Interpersonal relations) -- Fiction",
+            "Pastoral fiction",
+            "Farm life -- Fiction",
+            "Women farmers -- Fiction",
+            "Wessex (England) -- Fiction"
+        ],
+        "locc": "PR"
+    },
+    {
+        "title": "The Fables of Aesop\nSelected, Told Anew, and Their History Traced",
+        "authors": [
+            "Aesop",
+            "Jacobs, Joseph,  [Editor]"
+        ],
+        "author_lifespan": [
+            "621? BCE-565? BCE",
+            "1854-1916"
+        ],
+        "isbn": "1922531942229",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Aesop's fables -- Adaptations",
+            "Fables, Greek -- Adaptations"
+        ],
+        "locc": "PA; PZ"
+    },
+    {
+        "title": "The 1990 United States Census",
+        "authors": [
+            "United States. Bureau of the Census"
+        ],
+        "author_lifespan": [],
+        "isbn": "9954105217190",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "United States -- Population -- Statistics",
+            "United States -- Census",
+            "Housing -- United States -- Statistics"
+        ],
+        "locc": "HA"
+    },
+    {
+        "title": "Plays of Sophocles: Oedipus the King; Oedipus at Colonus; Antigone",
+        "authors": [
+            "Sophocles",
+            "Storr, Francis,  [Translator]"
+        ],
+        "author_lifespan": [
+            "496? BCE-407 BCE",
+            "1839-1919"
+        ],
+        "isbn": "2676174089663",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Tragedies (Drama)",
+            "Antigone (Mythological character) -- Drama",
+            "Oedipus (Greek mythological figure) -- Drama",
+            "Greek drama (Tragedy) -- Translations into English"
+        ],
+        "locc": "PA"
+    },
+    {
+        "title": "Herland",
+        "authors": [
+            "Gilman, Charlotte Perkins"
+        ],
+        "author_lifespan": [
+            "1860-1935"
+        ],
+        "isbn": "5102797678482",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Utopias -- Fiction",
+            "Women -- Fiction",
+            "Utopian fiction",
+            "Black humor"
+        ],
+        "locc": "PS"
+    },
+    {
+        "title": "The Scarlet Letter",
+        "authors": [
+            "Hawthorne, Nathaniel"
+        ],
+        "author_lifespan": [
+            "1804-1864"
+        ],
+        "isbn": "5929426941741",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Adultery -- Fiction",
+            "Historical fiction",
+            "Revenge -- Fiction",
+            "Psychological fiction",
+            "Married women -- Fiction",
+            "Clergy -- Fiction",
+            "Triangles (Interpersonal relations) -- Fiction",
+            "Illegitimate children -- Fiction",
+            "Women immigrants -- Fiction",
+            "Puritans -- Fiction",
+            "Boston (Mass.) -- History -- Colonial period, ca. 1600-1775 -- Fiction"
+        ],
+        "locc": "PS"
+    },
+    {
+        "title": "Zen and the Art of the Internet",
+        "authors": [
+            "Kehoe, Brendan P."
+        ],
+        "author_lifespan": [
+            "1970-2011"
+        ],
+        "isbn": "6140866460321",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Internet",
+            "Computer networks",
+            "Information networks",
+            "Information retrieval"
+        ],
+        "locc": "TK"
+    },
+    {
+        "title": "The Time Machine",
+        "authors": [
+            "Wells, H. G. (Herbert George)"
+        ],
+        "author_lifespan": [
+            "1866-1946"
+        ],
+        "isbn": "1188721753985",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Science fiction",
+            "Time travel -- Fiction",
+            "Dystopias -- Fiction"
+        ],
+        "locc": "PR"
+    },
+    {
+        "title": "The War of the Worlds",
+        "authors": [
+            "Wells, H. G. (Herbert George)"
+        ],
+        "author_lifespan": [
+            "1866-1946"
+        ],
+        "isbn": "8616541508430",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Science fiction",
+            "War stories",
+            "Martians -- Fiction",
+            "Mars (Planet) -- Fiction",
+            "Space warfare -- Fiction",
+            "Imaginary wars and battles -- Fiction",
+            "Life on other planets -- Fiction"
+        ],
+        "locc": "PR"
+    },
+    {
+        "title": "The 1990 United States Census [2nd]",
+        "authors": [
+            "United States. Bureau of the Census"
+        ],
+        "author_lifespan": [],
+        "isbn": "2486898126289",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "United States -- Population -- Statistics",
+            "United States -- Census",
+            "Housing -- United States -- Statistics"
+        ],
+        "locc": "HA"
+    },
+    {
+        "title": "The Jargon File, Version 2.9.10, 01 Jul 1992",
+        "authors": [
+            "Raymond, Eric S., 1957- [Editor]",
+            "Steele, Guy L., 1954- [Editor]"
+        ],
+        "author_lifespan": [],
+        "isbn": "8651556212049",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Electronic data processing -- Terminology -- Humor",
+            "Computers -- Humor",
+            "Computers -- Slang -- Dictionaries"
+        ],
+        "locc": "TK"
+    },
+    {
+        "title": "Hitchhiker's Guide to the Internet",
+        "authors": [
+            "Krol, Ed, 1951-"
+        ],
+        "author_lifespan": [],
+        "isbn": "9609959971023",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Internet",
+            "Computer networks"
+        ],
+        "locc": "TK"
+    },
+    {
+        "title": "NorthWestNet User Services Internet Resource Guide (NUSIRG)",
+        "authors": [
+            "Kochmer, Jonathan"
+        ],
+        "author_lifespan": [],
+        "isbn": "7843542105530",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Internet"
+        ],
+        "locc": "TK"
+    },
+    {
+        "title": "The Legend of Sleepy Hollow",
+        "authors": [
+            "Irving, Washington"
+        ],
+        "author_lifespan": [
+            "1783-1859"
+        ],
+        "isbn": "8650543195446",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Ghosts -- Fiction",
+            "New York (State) -- History -- 1775-1865 -- Fiction"
+        ],
+        "locc": "PS"
+    },
+    {
+        "title": "The Strange Case of Dr. Jekyll and Mr. Hyde",
+        "authors": [
+            "Stevenson, Robert Louis"
+        ],
+        "author_lifespan": [
+            "1850-1894"
+        ],
+        "isbn": "4107873333680",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Science fiction",
+            "Horror tales",
+            "London (England) -- Fiction",
+            "Physicians -- Fiction",
+            "Psychological fiction",
+            "Self-experimentation in medicine -- Fiction",
+            "Multiple personality -- Fiction"
+        ],
+        "locc": "PR"
+    },
+    {
+        "title": "The Strange Case of Dr. Jekyll and Mr. Hyde",
+        "authors": [
+            "Stevenson, Robert Louis"
+        ],
+        "author_lifespan": [
+            "1850-1894"
+        ],
+        "isbn": "6351027121864",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Science fiction",
+            "Horror tales",
+            "London (England) -- Fiction",
+            "Physicians -- Fiction",
+            "Psychological fiction",
+            "Self-experimentation in medicine -- Fiction",
+            "Multiple personality -- Fiction"
+        ],
+        "locc": "PR"
+    },
+    {
+        "title": "The Song of the Lark",
+        "authors": [
+            "Cather, Willa"
+        ],
+        "author_lifespan": [
+            "1873-1947"
+        ],
+        "isbn": "8522575370919",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Musical fiction",
+            "Young women -- Fiction",
+            "Bildungsromans",
+            "Chicago (Ill.) -- Fiction",
+            "Swedish Americans -- Fiction",
+            "Colorado -- Fiction",
+            "Opera -- Fiction",
+            "Children of clergy -- Fiction",
+            "Women singers -- Fiction"
+        ],
+        "locc": "PS"
+    },
+    {
+        "title": "Anne of Green Gables",
+        "authors": [
+            "Montgomery, L. M. (Lucy Maud)"
+        ],
+        "author_lifespan": [
+            "1874-1942"
+        ],
+        "isbn": "6468706802628",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Orphans -- Fiction",
+            "Islands -- Fiction",
+            "Friendship -- Fiction",
+            "Bildungsromans",
+            "Girls -- Fiction",
+            "Country life -- Prince Edward Island -- Fiction",
+            "Prince Edward Island -- History -- 20th century -- Fiction",
+            "Canada -- History -- 1867-1914 -- Fiction",
+            "Shirley, Anne (Fictitious character) -- Fiction"
+        ],
+        "locc": "PZ"
+    },
+    {
+        "title": "A Christmas Carol in Prose; Being a Ghost Story of Christmas",
+        "authors": [
+            "Dickens, Charles",
+            "Leech, John,  [Illustrator]"
+        ],
+        "author_lifespan": [
+            "1812-1870",
+            "1817-1864"
+        ],
+        "isbn": "8703527800721",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Christmas stories",
+            "London (England) -- Fiction",
+            "Poor families -- Fiction",
+            "Ghost stories",
+            "Misers -- Fiction",
+            "Sick children -- Fiction",
+            "Scrooge, Ebenezer (Fictitious character) -- Fiction"
+        ],
+        "locc": "PR"
+    },
+    {
+        "title": "Anne of Avonlea",
+        "authors": [
+            "Montgomery, L. M. (Lucy Maud)"
+        ],
+        "author_lifespan": [
+            "1874-1942"
+        ],
+        "isbn": "3977497471549",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Orphans -- Fiction",
+            "Islands -- Fiction",
+            "Teachers -- Fiction",
+            "Prince Edward Island -- History -- 20th century -- Fiction",
+            "Canada -- History -- 1914-1945 -- Fiction",
+            "Shirley, Anne (Fictitious character) -- Fiction"
+        ],
+        "locc": "PZ"
+    },
+    {
+        "title": "The 1992 CIA World Factbook",
+        "authors": [
+            "United States. Central Intelligence Agency"
+        ],
+        "author_lifespan": [],
+        "isbn": "4611957319519",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "World politics -- Handbooks, manuals, etc.",
+            "Geography -- Handbooks, manuals, etc.",
+            "Political science -- Handbooks, manuals, etc.",
+            "Political statistics -- Handbooks, manuals, etc."
+        ],
+        "locc": "G"
+    },
+    {
+        "title": "Surfing the Internet: An Introduction\nVersion 2.0.2",
+        "authors": [
+            "Polly, Jean Armour"
+        ],
+        "author_lifespan": [],
+        "isbn": "8996148242469",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Internet addresses -- Directories",
+            "Computer network resources -- Directories",
+            "Electronic mail systems -- Directories"
+        ],
+        "locc": "TK"
+    },
+    {
+        "title": "Pi",
+        "authors": [
+            "Hemphill, Scott"
+        ],
+        "author_lifespan": [],
+        "isbn": "5582366585539",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Mathematics",
+            "Pi"
+        ],
+        "locc": "QA"
+    },
+    {
+        "title": "Anne of the Island",
+        "authors": [
+            "Montgomery, L. M. (Lucy Maud)"
+        ],
+        "author_lifespan": [
+            "1874-1942"
+        ],
+        "isbn": "3410756933660",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Orphans -- Fiction",
+            "Prince Edward Island -- History -- 20th century -- Fiction",
+            "Interpersonal relations -- Fiction",
+            "Canada -- History -- 1914-1945 -- Fiction",
+            "Self-perception -- Fiction",
+            "Universities and colleges -- Fiction",
+            "Nova Scotia -- History -- 20th century -- Fiction",
+            "Shirley, Anne (Fictitious character) -- Fiction"
+        ],
+        "locc": "PZ"
+    },
+    {
+        "title": "The Square Root of 2",
+        "authors": [
+            "Kerr, Stan"
+        ],
+        "author_lifespan": [],
+        "isbn": "4107979155307",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Mathematics",
+            "Square root"
+        ],
+        "locc": "QA"
+    },
+    {
+        "title": "Workshop on Electronic Texts: Proceedings, 9-10 June 1992",
+        "authors": [
+            "Library of Congress",
+            "Daly, James, 1948- [Editor]"
+        ],
+        "author_lifespan": [],
+        "isbn": "7534381058902",
+        "numberOfPages": null,
+        "genre": null,
+        "subjects": [
+            "Text processing (Computer science) -- Congresses",
+            "Electronic books",
+            "Electronic publishing -- Congresses"
+        ],
+        "locc": "Z"
+    }
+]
