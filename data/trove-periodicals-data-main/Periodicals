@@ -4,8 +4,6 @@ import pandas as pd
 titles_df = pd.read_csv("periodical-titles.csv")
 issues_df = pd.read_csv("periodical-issues.csv")
 
-
-
 #cleaning data and columns/exploration
 #print(titles_df.columns)
 #print(issues_df.columns)
@@ -20,14 +18,7 @@ def merge_data(titles_df, issues_df):
 
 merged_df = merge_data(titles_df, issues_df)
 
-# Clean missing descriptions
-merged_df["description_y"] = merged_df["description_y"].fillna("")
 
-
-# ADD VOLUME EXTRACTION HERE
-merged_df["volume"] = merged_df["description_y"].str.extract(
-    r"(?:Volume|Vol\.)\s*(\d+)"
-)
 
 #details on merged df for exploration
 #print(merged_df.shape)
@@ -39,12 +30,27 @@ merged_df["volume"] = merged_df["description_y"].str.extract(
 #print(merged_df[["description_x"]].head(30)) #returns 30 lines of titles.description 
 #print(merged_df[["description_y"]].head(30)) #returns 30 lines of issues.description
 
+# Fill missing descriptions
 merged_df["description_y"] = merged_df["description_y"].fillna("")
-merged_df["description_y"].isna().sum()
-merged_df["description_y"].str.contains("Volume", na=False).sum()
-merged_df["description_y"].str.contains("Vol.", regex=False, na=False).sum()
 
-print("Missing descriptions:", merged_df["description_y"].isna().sum())
+# Extract volume number
+merged_df["volume"] = merged_df["description_y"].str.extract(
+    r"(?:Volume|Vol\.)\s*(\d+)",
+    expand=False
+)
+
+# Extract issue number
+merged_df["issue"] = merged_df["description_y"].str.extract(
+    r"(?i)(?:Issue|No\.?|Number)\s*(\d+)",
+    expand=False
+)
+
+# Rename place to location
+merged_df["location"] = merged_df["place"]
+
+# Quick checks
+print("Missing descriptions:",
+      merged_df["description_y"].isna().sum())
 
 print("Contains 'Volume':",
       merged_df["description_y"].str.contains("Volume", na=False).sum())
@@ -52,36 +58,23 @@ print("Contains 'Volume':",
 print("Contains 'Vol.':",
       merged_df["description_y"].str.contains("Vol.", regex=False, na=False).sum())
 
-volume_rows = merged_df[
-    merged_df["description_y"].str.contains("Volume", na=False)
-]
-
-print(volume_rows["description_y"].head(20))
-
-
-volume_rows = merged_df[
-    merged_df["description_y"].str.contains("Vol.", na=False)
-]
-
-print(volume_rows["description_y"].head(20))
-
 clean_df = merged_df[ #created a new merged df with only the fields i need to send to java
     [
         "title_x",
         "publisher",
         "issn",
-        "place",
+        "location",
         "date",
         "pages",
         "description_y",
-        "volume"
+        "volume",
+        "issue"
     ]
 ].copy() 
 
 clean_df.rename(
     columns={
         "title_x": "title",
-        "place": "location",
         "date": "publicationDate",
         "description_y": "description"
     },
@@ -92,16 +85,26 @@ print(clean_df.columns)
 print(clean_df.head())
 print(clean_df.info()) #shows column names, missing values, and data types
 
-print(clean_df[["description", "volume"]].head(20))
+print(clean_df[["description", "volume", "issue"]].head(20))
 
 #JSON export
-print(clean_df.info())
 
 clean_df.to_json(
     "clean_periodicals.json",
     orient="records",
     indent=4
 )
+
+print("JSON files created successfully!")
+
+# Export first 30 records only
+clean_df.head(30).to_json(
+    "clean_periodicals_30.json",
+    orient="records",
+    indent=4
+)
+
+print("30-record JSON file created successfully!")
 
 #print(titles_df[["id", "title"]].head())
 #print(issues_df[["title_id", "title"]].head())
