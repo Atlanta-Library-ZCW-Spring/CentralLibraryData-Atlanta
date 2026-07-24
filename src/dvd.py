@@ -1,14 +1,20 @@
 import ast
+import os
+from pathlib import Path
+
 import pandas as pd
+import requests
+
+
+# ============================================================
+# 1. Helper Functions
+# ============================================================
 
 def parse_list(value):
     """
     Convert a string containing a list of dictionaries
-    into a real Python list.
-
-    Invalid or missing values become an empty list.
+    into a Python list.
     """
-
     if pd.isna(value):
         return []
 
@@ -24,14 +30,15 @@ def parse_list(value):
 
         except (ValueError, SyntaxError):
             return []
-        
+
+    return []
+
+
 def extract_names(items):
     """
     Extract the 'name' value from a list of dictionaries.
-
-    Used for genres and keywords.
+    Used for movie genres.
     """
-
     names = []
 
     for item in items:
@@ -46,9 +53,9 @@ def extract_names(items):
 
 def extract_top_cast(cast_list, cast_limit=5):
     """
-    Extract the first five cast member names.
+    Extract the first cast-member names,
+    up to the specified cast limit.
     """
-
     cast_names = []
 
     for person in cast_list[:cast_limit]:
@@ -65,19 +72,31 @@ def extract_director(crew_list):
     """
     Extract the director's name from the crew list.
     """
-
     for person in crew_list:
-        if not isinstance(person, dict):
-            continue
-
-        if person.get("job") == "Director":
-            return person.get("name")
+        if (
+            isinstance(person, dict)
+            and person.get("job") == "Director"
+        ):
+            return person.get("name", "")
 
     return ""
 
-movies_df = pd.read_csv("movies_metadata.csv",low_memory=False) # Read the movies metadata CSV file into a pandas DataFrame
+
+# ============================================================
+# 2. Extract: Read CSV Files
+# ============================================================
+
+movies_df = pd.read_csv(
+    "movies_metadata.csv",
+    low_memory=False
+)
+
 credits_df = pd.read_csv("credits.csv")
-keywords_df = pd.read_csv("keywords.csv")
+
+
+# ============================================================
+# 3. Select Required Columns
+# ============================================================
 
 movies_df = movies_df[
     [
@@ -87,7 +106,7 @@ movies_df = movies_df[
         "genres"
     ]
 ].copy()
-# Create a copy of the DataFrame with selected columns: 'id', 'title', 'runtime', and 'genres'
+
 credits_df = credits_df[
     [
         "id",
@@ -96,100 +115,113 @@ credits_df = credits_df[
     ]
 ].copy()
 
-keywords_df = keywords_df[
-    [
-        "id",
-        "keywords"
-    ]
-].copy()
 
-movies_df["id"] = pd.to_numeric(movies_df["id"],errors="coerce")
+# ============================================================
+# 4. Clean Movies DataFrame
+# ============================================================
 
-movies_df["runtime"] = pd.to_numeric(movies_df["runtime"], errors="coerce")
+movies_df["id"] = pd.to_numeric(
+    movies_df["id"],
+    errors="coerce"
+)
 
+movies_df["runtime"] = pd.to_numeric(
+    movies_df["runtime"],
+    errors="coerce"
+)
+
+# Remove rows without a valid movie ID
 movies_df = movies_df.dropna(subset=["id"])
 
 movies_df["id"] = movies_df["id"].astype(int)
 
-movies_df["title"] = (movies_df["title"].fillna("").astype(str).str.strip())
+movies_df["title"] = (
+    movies_df["title"]
+    .fillna("")
+    .astype(str)
+    .str.strip()
+)
 
-movies_df = movies_df.drop_duplicates(subset=["id"])
+# Remove duplicate TMDB movie IDs
+movies_df = movies_df.drop_duplicates(
+    subset=["id"]
+)
 
 
-# -----------------------------------
-# 4. Clean credits DataFrame
-# -----------------------------------
+# ============================================================
+# 5. Clean Credits DataFrame
+# ============================================================
 
-credits_df["id"] = pd.to_numeric(credits_df["id"],errors="coerce")
+credits_df["id"] = pd.to_numeric(
+    credits_df["id"],
+    errors="coerce"
+)
 
-credits_df = credits_df.dropna(subset=["id"])
+credits_df = credits_df.dropna(
+    subset=["id"]
+)
 
 credits_df["id"] = credits_df["id"].astype(int)
 
-credits_df = credits_df.drop_duplicates(subset=["id"])
+credits_df = credits_df.drop_duplicates(
+    subset=["id"]
+)
 
 
-# -----------------------------------
-# 5. Clean keywords DataFrame
-# -----------------------------------
+# ============================================================
+# 6. Merge Movies and Credits
+# ============================================================
 
-keywords_df["id"] = pd.to_numeric(keywords_df["id"],errors="coerce")
+final_df = pd.merge(
+    movies_df,
+    credits_df,
+    on="id",
+    how="left"
+)
 
-keywords_df = keywords_df.dropna(subset=["id"])
 
-keywords_df["id"] = keywords_df["id"].astype(int)
+# ============================================================
+# 7. Parse Complex Columns
+# ============================================================
 
-keywords_df = keywords_df.drop_duplicates(subset=["id"])
+final_df["genres_parsed"] = (
+    final_df["genres"].apply(parse_list)
+)
 
-# Join Movies and Credits
+final_df["cast_parsed"] = (
+    final_df["cast"].apply(parse_list)
+)
 
-final_df = pd.merge(movies_df, credits_df, on="id", how="left")
-final_df = pd.merge(final_df, keywords_df, on="id", how="left")
-print("Merge completed.")
-print("Rows after merge:", len(final_df))
+final_df["crew_parsed"] = (
+    final_df["crew"].apply(parse_list)
+)
 
-# Check Merge Before Parsing
 
-print("\nColumns after merge:")
+# ============================================================
+# 8. Create Simplified Columns
+# ============================================================
 
-print(final_df.columns.tolist())
+final_df["genre_names"] = (
+    final_df["genres_parsed"].apply(extract_names)
+)
 
-print("\nFirst five merged records:")
+final_df["top_cast"] = (
+    final_df["cast_parsed"].apply(
+        lambda cast_list: extract_top_cast(
+            cast_list,
+            cast_limit=5
+        )
+    )
+)
 
-print(
-    final_df[
-        [
-            "id",
-            "title",
-            "runtime",
-            "genres",
-            "cast",
-            "crew",
-            "keywords"
-        ]
-    ].head())
+final_df["director"] = (
+    final_df["crew_parsed"].apply(extract_director)
+)
 
-# Transform: Parse Complex Columns
 
-final_df["genres_parsed"] = final_df["genres"].apply(parse_list)
-
-final_df["cast_parsed"] = final_df["cast"].apply(parse_list)
-
-final_df["crew_parsed"] = final_df["crew"].apply(parse_list)
-
-final_df["keywords_parsed"] = final_df["keywords"].apply(parse_list)
-
-# Transform: Extract Simple Values
-
-final_df["genre_names"] = final_df["genres_parsed"].apply(extract_names)
-
-final_df["top_cast"] = final_df["cast_parsed"].apply(lambda cast_list: extract_top_cast(cast_list,cast_limit=5))
-
-final_df["director"] = final_df["crew_parsed"].apply(extract_director)
-
-final_df["keyword_names"] = final_df["keywords_parsed"].apply(extract_names)
-
-# Create Clean Final Dataframe
+# ============================================================
+# 9. Create Clean DataFrame
+# ============================================================
 
 clean_df = final_df[
     [
@@ -198,50 +230,169 @@ clean_df = final_df[
         "runtime",
         "genre_names",
         "top_cast",
-        "director",
-        "keyword_names"
+        "director"
     ]
 ].copy()
 
-# Validate Final Data
 
-print("\nFinal DataFrame columns:")
+# ============================================================
+# 10. TMDB API Configuration
+# ============================================================
 
-print(clean_df.columns.tolist())
+TMDB_TOKEN = os.getenv("TMDB_TOKEN")
 
-print("\nFinal row count:", len(clean_df))
+if not TMDB_TOKEN:
+    raise ValueError(
+        "TMDB_TOKEN was not found. "
+        "Add it to your environment and restart VS Code."
+    )
 
-print("\nMissing values:")
+HEADERS = {
+    "Authorization": f"Bearer {TMDB_TOKEN}",
+    "accept": "application/json"
+}
 
-print(clean_df.isnull().sum())
+# Reuse the same connection for multiple requests
+session = requests.Session()
+session.headers.update(HEADERS)
+
+
+def get_mpa_rating(tmdb_id):
+    """
+    Return the first available US MPA certification
+    for a movie from the TMDB API.
+    """
+    url = (
+        f"https://api.themoviedb.org/3/movie/"
+        f"{tmdb_id}/release_dates"
+    )
+
+    try:
+        response = session.get(
+            url,
+            timeout=15
+        )
+
+        response.raise_for_status()
+
+    except requests.RequestException as error:
+        print(
+            f"TMDB request failed for movie "
+            f"{tmdb_id}: {error}"
+        )
+        return ""
+
+    try:
+        data = response.json()
+
+    except requests.JSONDecodeError:
+        print(
+            f"TMDB returned invalid JSON "
+            f"for movie {tmdb_id}."
+        )
+        return ""
+
+    for country in data.get("results", []):
+        if country.get("iso_3166_1") == "US":
+
+            for release in country.get(
+                "release_dates",
+                []
+            ):
+                rating = (
+                    release
+                    .get("certification", "")
+                    .strip()
+                )
+
+                if rating:
+                    return rating
+
+    return ""
+
+
+# ============================================================
+# 11. Test the TMDB Function
+# ============================================================
+
+# ============================================================
+# Process only the first 100 movies
+# ============================================================
+
+clean_df = clean_df.head(100).copy()
+
+print(f"Processing {len(clean_df)} movies...")
+
+
+# ============================================================
+# 12. Add MPA Ratings
+# ============================================================
+
+# This makes one API request for each movie.
+clean_df["mpa_rating"] = (
+    clean_df["id"].apply(get_mpa_rating)
+)
+
+
+# Put mpa_rating next to runtime
+clean_df = clean_df[
+    [
+        "id",
+        "title",
+        "runtime",
+        "mpa_rating",
+        "genre_names",
+        "top_cast",
+        "director"
+    ]
+].copy()
+
+print("\nMPA ratings added to clean_df.")
 
 print(
-    "\nDuplicate movie IDs:",
-    clean_df["id"].duplicated().sum()
+    clean_df[
+        [
+            "title",
+            "mpa_rating"
+        ]
+    ].head()
 )
-# Display Toy Story
-toy_story_df = clean_df[clean_df["id"] == 862]
 
-print("\nToy Story parsed record:")
 
-print(toy_story_df.to_string(index=False))
+# ============================================================
+# 13. Validate Final Data
+# ============================================================
 
-# LOAD: Export Full DATASET
+print("\nFinal DataFrame columns:")
+print(clean_df.columns.tolist())
 
-clean_df.to_csv("final_movies.csv",index=False)
+print("\nFinal row count:")
+print(len(clean_df))
 
-clean_df.to_json("final_movies.json",orient="records",indent=4,force_ascii=False)
+print("\nMissing values:")
+print(clean_df.isnull().sum())
 
-# Load: Export First 20 Records
+print("\nDuplicate movie IDs:")
+print(clean_df["id"].duplicated().sum())
 
-first_20_df = clean_df.head(20)
+print("\nMPA rating distribution:")
 
-first_20_df.to_json("final_movies_20.json",orient="records",indent=4,force_ascii=False)
+print(
+    clean_df["mpa_rating"]
+    .replace("", "Not available")
+    .value_counts(dropna=False)
+)
 
-# Completion Message
+# ============================================================
+# 14. Export Full Dataset as JSON
+# ============================================================
+# Export the JSON file
 
-print("\nETL pipeline completed successfully.")
+clean_df.to_json(
+    "final_movies.json",
+    orient="records",
+    indent=4,
+    force_ascii=False
+)
 
-print("Created: final_movies.csv")
-print("Created: final_movies.json")
-print("Created: final_movies_20.json")
+print("final_movies.json created successfully!")

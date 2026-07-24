@@ -196,6 +196,11 @@ cython_debug/
 # LMS
 
 *.json
-music_data.json
-tcc_ceds_music.csv
-music_test.py
+test.Movies-1-final-no-keywords.ipynb
+test.Movies-1-fixed.ipynb
+test.final_movies.csv
+test.keywords.csv
+test.links.csv
+test.links_small.csv
+test.ratings.csv
+test.ratings_small.csv
